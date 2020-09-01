@@ -1,7 +1,8 @@
 # Source : https://github.com/github/gitignore
 # Maven, Node, Python, Rails
-
 # Maven
+node_modules
+node_modules/*
 
 target/
 pom.xml.tag
