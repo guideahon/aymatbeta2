@@ -5,22 +5,31 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = Express();
 
+const CallLogin = require("./services/growattAPI");
 const dbPort = '27017'
 const listeningPort = 3000
 const schema = '/meetup'
 const dbUrl = "mongodb://localhost:" + dbPort + schema;
 
 app.use(bodyParser.json());
+app.use(cors());
 
-console.log("La base de datos esta corriendo correctamente");
+app.get("/", function(req, res) {
+  res.send(
+    '<style>*{font-family: sans-serif;background-color:black;color:lawngreen;}</style><center><h1>AYMAT HACKING PROXY</h1></center>'
+  );
+});
+
+app.get("/aymat/ping", function(req, res) {
+    CallLogin()
+        .then((data) => {
+            return res.status(200).send(data);
+        })
+});
+
 app.listen(listeningPort, () => {
     console.log("El servidor está inicializado en el puerto " + listeningPort);
 });
-
-app.use(cors());
-app.use('/aymat', Routes.aymatRouter);
-
-
 
 
  
