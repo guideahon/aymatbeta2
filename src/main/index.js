@@ -27,8 +27,9 @@ app.get("/aymat/ping", function(req, res) {
         })
 });
 
-app.listen(listeningPort, () => {
-    console.log("El servidor está inicializado en el puerto " + listeningPort);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("El servidor está inicializado en el puerto " + PORT);
 });
 
 
