@@ -4,7 +4,6 @@
   "description": "Challenge Santander",
   "main": "index.js",
 "scripts": {
-    "postinstall": "npm run build",
     "run": "nodemon src/main/index.js",
     "start": "node src/main/index.js"
   },
