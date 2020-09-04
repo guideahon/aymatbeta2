@@ -36,9 +36,9 @@ app.get("/aymat/plant/:plantId", function(req, res) {
                 .then(plants => {
                     return res.status(200).send(plants);
                 })
-                .catch(error => console.log(error));
+                // .catch(error => console.log(error));
         })
-        .catch(error => console.log(error));
+        // .catch(error => console.log(error));
 });
 
 app.get("/aymat/plants", function(req, res) {
@@ -56,9 +56,9 @@ app.get("/aymat/plants", function(req, res) {
                 .then(plants => {
                     return res.status(200).send(plants);
                 })
-                .catch(error => console.log(error));
+                // .catch(error => console.log(error));
         })
-        .catch(error => console.log(error));
+        // .catch(error => console.log(error));
 });
 
 const PORT = process.env.PORT || 3000;
