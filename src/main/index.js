@@ -51,12 +51,16 @@ app.get("/aymat/plants", function(req, res) {
                 oneCookie = oneCookie.split(';');
                 requestCookies= requestCookies + oneCookie[0]+';';
             }
-
+      
+          if(JSON.parse(data.body).back.errCode==102){
+            return  res.status(200).send({"back":{"data":[{"plantMoneyText":"0.0 ","plantName":"","plantId":"-1","isHaveStorage":"false","todayEnergy":"0 kWh","totalEnergy":"0 kWh","currentPower":"0 W"}],"totalData":{"currentPowerSum":"0 W","CO2Sum":"0 T","isHaveStorage":"false","eTotalMoneyText":"0.0 ","todayEnergySum":"0 kWh","totalEnergySum":"0 kWh"},"success":true}});
+          }else{
             GetPlants(JSON.parse(data.body).back.userId, requestCookies)
                 .then(plants => {
                     return res.status(200).send(plants);
                 })
                 // .catch(error => console.log(error));
+          }
         })
         // .catch(error => console.log(error));
 });
@@ -65,6 +69,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log("El servidor está inicializado en el puerto " + PORT);
 });
-
-
- 
